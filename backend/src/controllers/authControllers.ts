@@ -14,3 +14,14 @@ export const register = async (req: Request, res: Response) => {
     }
 };
 
+export const login = async (req: Request, res: Response) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) return res.status(404).json({ error: 'User not found' });
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET as string, { expiresIn: '1d'});
+        res.json({ token, userId: user._id });
+    } catch (err) {
+        res.status(500).json({ error: 'Server error' });
+    }
+};
