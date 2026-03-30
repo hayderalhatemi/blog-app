@@ -15,6 +15,7 @@ export const createPost = async (req: AuthRequest, res: Response) => {
 export const getPosts = async (req: Request, res: Response) => {
     try {
         const posts = await Post.find().populate('author', 'username email');
+        res.json(posts);
     } catch (err) {
         res.status(500).json({error: 'Failed to get posts' });
     }
