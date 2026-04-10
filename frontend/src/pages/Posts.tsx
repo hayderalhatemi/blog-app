@@ -8,3 +8,11 @@ interface Post {
   content: string;
   author: { username: string };
 }
+
+function Posts() {
+  const { token } = useAuth();
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [form, setForm] = useState({ title: '', content: ''});
+
+
+}
