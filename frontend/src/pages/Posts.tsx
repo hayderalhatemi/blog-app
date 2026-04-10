@@ -10,9 +10,9 @@ interface Post {
 }
 
 function Posts() {
-  const { token } useAuth();
+  const { token } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [form, setForm] = useState({ title: '', content: ''});
 
-  
+
 }
