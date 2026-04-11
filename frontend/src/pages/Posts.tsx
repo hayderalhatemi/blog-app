@@ -14,5 +14,13 @@ function Posts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [form, setForm] = useState({ title: '', content: ''});
 
+   // Fetch all posts on load
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/posts')
+      .then(res => setPosts(res.data));
+  }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 }
