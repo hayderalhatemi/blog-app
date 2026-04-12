@@ -12,9 +12,9 @@ interface Post {
 function Posts() {
   const { token } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
-  const [form, setForm] = useState({ title: '', content: ''});
+  const [form, setForm] = useState({ title: '', content: '' });
 
-   // Fetch all posts on load
+  // Fetch all posts on load
   useEffect(() => {
     axios.get('http://localhost:5000/api/posts')
       .then(res => setPosts(res.data));
@@ -23,4 +23,20 @@ function Posts() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-}
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        'http://localhost:5000/api/posts',
+        form,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setPosts([res.data, ...posts]);
+      setForm({ title: '', content: '' });
+    } catch {
+      alert('Failed to create post. Are you logged in?');
+    }
+  };
+
+  
