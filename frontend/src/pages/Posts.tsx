@@ -39,4 +39,17 @@ function Posts() {
     }
   };
 
-  
+  return (
+    <div>
+      <h2>Posts</h2>
+
+      {token && (
+        <div>
+          <h3>Create Post</h3>
+          <input name="title" placeholder='Title' value={form.title} onChange={handleChange} />
+          <textarea name="content" placeholder='Content' value={form.content} onChange={handleChange} />
+          <button onClick={handleSubmit}>Publish</button>
+        </div>
+      )}
+    </div>
+  )
