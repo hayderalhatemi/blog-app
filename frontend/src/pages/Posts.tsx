@@ -46,10 +46,21 @@ function Posts() {
       {token && (
         <div>
           <h3>Create Post</h3>
-          <input name="title" placeholder='Title' value={form.title} onChange={handleChange} />
-          <textarea name="content" placeholder='Content' value={form.content} onChange={handleChange} />
+          <input name="title" placeholder="Title" value={form.title} onChange={handleChange} />
+          <textarea name="content" placeholder="Content" value={form.content} onChange={handleChange} />
           <button onClick={handleSubmit}>Publish</button>
         </div>
       )}
+
+      {posts.map(post => (
+        <div key={post._id}>
+          <h3>{post.title}</h3>
+          <p>{post.content}</p>
+          <small>By {post.author.username}</small>
+        </div>
+      ))}
     </div>
-  )
+  );
+}
+
+export default Posts;
