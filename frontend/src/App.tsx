@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Posts from './pages/Posts';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
