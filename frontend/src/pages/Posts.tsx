@@ -6,11 +6,11 @@ interface Post {
   _id: string;
   title: string;
   content: string;
-  author: { username: string };
+  author: { _id: string; username: string };
 }
 
 function Posts() {
-  const { token } = useAuth();
+  const { token, userId } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [form, setForm] = useState({ title: '', content: '' });
 
@@ -39,6 +39,17 @@ function Posts() {
     }
   };
 
+  const handleDelete = async (id: string) => {
+  try {
+    await axios.delete(`http://localhost:5000/api/posts/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    setPosts(posts.filter(p => p._id !== id));
+  } catch {
+    alert('Failed to delete post');
+  }
+};
+
   return (
     <div>
       <h2>Posts</h2>
@@ -57,6 +68,9 @@ function Posts() {
           <h3>{post.title}</h3>
           <p>{post.content}</p>
           <small>By {post.author.username}</small>
+          {userId === post.author._id && (
+            <button onClick={() => handleDelete(post._id)}>Delete</button>
+          )}
         </div>
       ))}
     </div>
