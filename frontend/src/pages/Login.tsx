@@ -24,7 +24,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className='page'>
       <h2>Login</h2>
       <input name="email" placeholder="Email" onChange={handleChange} />
       <input name="password" type="password" placeholder="Password" onChange={handleChange} />

@@ -51,11 +51,11 @@ function Posts() {
 };
 
   return (
-    <div>
+    <div className='page'>
       <h2>Posts</h2>
 
       {token && (
-        <div>
+        <div className='create-post'>
           <h3>Create Post</h3>
           <input name="title" placeholder="Title" value={form.title} onChange={handleChange} />
           <textarea name="content" placeholder="Content" value={form.content} onChange={handleChange} />
@@ -64,7 +64,7 @@ function Posts() {
       )}
 
       {posts.map(post => (
-        <div key={post._id}>
+        <div key={post._id} className='post-card'>
           <h3>{post.title}</h3>
           <p>{post.content}</p>
           <small>By {post.author.username}</small>
