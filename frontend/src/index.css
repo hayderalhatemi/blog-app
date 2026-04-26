@@ -41,3 +41,43 @@ nav button {
   font-size: 14px;
 }
 
+nav button:hover {
+  background: #c53030;
+}
+
+/* page container */
+.page {
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+/* Forms */
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: vertical;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
