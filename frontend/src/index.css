@@ -81,3 +81,24 @@ button {
 button:hover {
   background-color: #005bb5;
 }
+
+/* Post card */
+.post-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.post-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.post-card p {
+  color: #444;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
