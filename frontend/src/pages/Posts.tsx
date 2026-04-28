@@ -68,6 +68,7 @@ function Posts() {
           <h3>{post.title}</h3>
           <p>{post.content}</p>
           <small>By {post.author.username}</small>
+          <br />
           {userId === post.author._id && (
             <button onClick={() => handleDelete(post._id)}>Delete</button>
           )}

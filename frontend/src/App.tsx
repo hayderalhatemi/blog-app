@@ -9,7 +9,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-      <Route path="/" element={<h1>Blog App</h1>} />
+      <Route path="/" element={<div className="page"><h1>Blog App</h1></div>} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path='/posts' element={<Posts />} />
