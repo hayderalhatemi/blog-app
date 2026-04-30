@@ -33,10 +33,8 @@ npm install
 npm run dev
 ```
 
-### Environment Variables
-Create a `.env` file in the `backend/` folder:
+## Environment Variables
 
-### Environment Variables
 Create a `.env` file in the `backend/` folder:
 
 ```env
@@ -49,8 +47,8 @@ JWT_SECRET=your_secret_key
 
 | Method | Endpoint | Access |
 |--------|----------|--------|
-| POST | /api/auth/register | Public |
-| POST | /api/auth/login | Public |
-| GET | /api/posts | Public |
-| POST | /api/posts | Protected |
-| DELETE | /api/posts/:id | Protected (author only) |
+| POST   | /api/auth/register | Public |
+| POST   | /api/auth/login    | Public |
+| GET    | /api/posts         | Public |
+| POST   | /api/posts         | Protected |
+| DELETE | /api/posts/:id     | Protected (author only) |
