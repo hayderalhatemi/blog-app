@@ -35,3 +35,22 @@ npm run dev
 
 ### Environment Variables
 Create a `.env` file in the `backend/` folder:
+
+### Environment Variables
+Create a `.env` file in the `backend/` folder:
+
+```env
+PORT=5000
+MONGO_URI=mongodb://localhost:27017/blogapp
+JWT_SECRET=your_secret_key
+```
+
+## API Endpoints
+
+| Method | Endpoint | Access |
+|--------|----------|--------|
+| POST | /api/auth/register | Public |
+| POST | /api/auth/login | Public |
+| GET | /api/posts | Public |
+| POST | /api/posts | Protected |
+| DELETE | /api/posts/:id | Protected (author only) |
