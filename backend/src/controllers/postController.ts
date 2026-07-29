@@ -8,6 +8,7 @@ export const createPost = async (req: AuthRequest, res: Response) => {
     const post = await Post.create({ title, content, author: req.userId });
     res.status(201).json(post);
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: 'Failed to create post' });
   }
 };
@@ -17,6 +18,7 @@ export const getPosts = async (req: Request, res: Response) => {
         const posts = await Post.find().populate('author', 'username email');
         res.json(posts);
     } catch (err) {
+      console.error(err);
         res.status(500).json({error: 'Failed to get posts' });
     }
 };
