@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
 
 interface Post {
@@ -16,7 +16,7 @@ function Posts() {
 
   // Fetch all posts on load
   useEffect(() => {
-    axios.get('http://localhost:5000/api/posts')
+    api.get('/api/posts')
       .then(res => setPosts(res.data));
   }, []);
 
@@ -27,8 +27,8 @@ function Posts() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        'http://localhost:5000/api/posts',
+      const res = await api.post(
+        '/api/posts',
         form,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -41,7 +41,7 @@ function Posts() {
 
   const handleDelete = async (id: string) => {
   try {
-    await axios.delete(`http://localhost:5000/api/posts/${id}`, {
+    await api.delete(`/api/posts/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setPosts(posts.filter(p => p._id !== id));
