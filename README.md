@@ -2,6 +2,11 @@
 
 A full stack blog application with JWT authentication built with Node.js, Express, TypeScript, React, and MongoDB.
 
+## Live Demo
+
+- Frontend: https://blog-app-phi-weld.vercel.app
+- Backend API: https://blog-app-nrg6.onrender.com
+
 ## Features
 
 - User registration and login with JWT authentication
@@ -16,6 +21,25 @@ A full stack blog application with JWT authentication built with Node.js, Expres
 **Backend:** Node.js, Express, TypeScript, MongoDB, Mongoose, bcryptjs, jsonwebtoken
 
 **Frontend:** React, TypeScript, Vite, React Router, Axios, Context API
+
+## Deployment
+
+- **Frontend:** Vercel
+- **Backend:** Render
+- **Database:** MongoDB Atlas
+
+## Project Structure
+
+```text
+blog-app/
+├── backend/
+│   ├── src/
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   └── package.json
+└── README.md
+```
 
 ## Getting Started
 
@@ -52,3 +76,12 @@ JWT_SECRET=your_secret_key
 | GET    | /api/posts         | Public |
 | POST   | /api/posts         | Protected |
 | DELETE | /api/posts/:id     | Protected (author only) |
+
+## Future Improvements
+
+- Edit existing posts
+- User profile page
+- Comments system
+- Image upload for posts
+- Search functionality
+- Pagination
