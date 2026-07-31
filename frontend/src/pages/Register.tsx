@@ -20,16 +20,56 @@ function Register() {
       alert('Registration failed');
     }
   };
-
   return (
-    <div className='page'>
-      <h2>Register</h2>
-      <input name="username" placeholder="Username" onChange={handleChange} />
-      <input name="email" placeholder="Email" onChange={handleChange} />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} />
-      <button onClick={handleSubmit}>Register</button>
-    </div>
-  );
+  <main className="auth-page">
+    <form className="auth-card" onSubmit={handleSubmit}>
+      <span className="auth-badge">Join the community</span>
+
+      <h1>Create an account</h1>
+
+      <p className="auth-description">
+        Start publishing your own posts in just a few seconds.
+      </p>
+
+      <label htmlFor="username">Username</label>
+      <input
+        id="username"
+        name="username"
+        placeholder="Choose a username"
+        value={form.username}
+        onChange={handleChange}
+        required
+      />
+
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="you@example.com"
+        value={form.email}
+        onChange={handleChange}
+        required
+      />
+
+      <label htmlFor="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Create a password"
+        value={form.password}
+        onChange={handleChange}
+        required
+      />
+
+      <button type="submit" className="auth-button">
+        Create Account
+      </button>
+    </form>
+  </main>
+);
+
 }
 
 export default Register;

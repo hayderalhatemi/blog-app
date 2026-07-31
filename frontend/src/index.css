@@ -58,9 +58,9 @@ body {
 }
 
 .register-link {
+  padding: 8px 16px;
   background: #2563eb;
   color: white !important;
-  padding: 8px 16px;
   border-radius: 8px;
 }
 
@@ -155,26 +155,26 @@ button:hover {
 }
 
 .hero {
-  background: white;
-  border-radius: 18px;
   padding: 70px 50px;
   text-align: center;
+  background: white;
+  border-radius: 18px;
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
 }
 
 .hero-badge {
   display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 20px;
   background: #eef4ff;
   color: #2563eb;
-  padding: 8px 16px;
   border-radius: 999px;
   font-weight: 600;
-  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: 3rem;
   margin-bottom: 20px;
+  font-size: 3rem;
 }
 
 .hero p {
@@ -191,8 +191,8 @@ button:hover {
 }
 
 .button-link {
-  text-decoration: none;
   padding: 12px 24px;
+  text-decoration: none;
   border-radius: 8px;
   font-weight: 600;
   transition:
@@ -214,8 +214,8 @@ button:hover {
 }
 
 .secondary-link {
-  border: 1px solid #2563eb;
   color: #2563eb;
+  border: 1px solid #2563eb;
 }
 
 .secondary-link:hover {
@@ -223,11 +223,73 @@ button:hover {
 }
 
 /* =========================
+   Authentication Pages
+========================= */
+
+.auth-page {
+  display: grid;
+  min-height: calc(100vh - 65px);
+  padding: 56px 20px;
+  place-items: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 36px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+}
+
+.auth-badge {
+  display: inline-block;
+  padding: 7px 14px;
+  margin-bottom: 18px;
+  background: #eef4ff;
+  color: #2563eb;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.auth-card h1 {
+  margin-bottom: 8px;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+.auth-description {
+  margin-bottom: 26px;
+  color: #64748b;
+}
+
+.auth-card label {
+  display: block;
+  margin-bottom: 7px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-card input {
+  margin-bottom: 18px;
+}
+
+.auth-button {
+  width: 100%;
+  margin-top: 4px;
+  padding: 12px 20px;
+}
+
+/* =========================
    Posts Page
 ========================= */
 
 .posts-page {
-  padding: 56px 24px 80px;
+  min-height: calc(100vh - 65px);
+  padding: 56px 24px 40px;
 }
 
 .posts-container {
@@ -242,11 +304,11 @@ button:hover {
 
 .posts-badge {
   display: inline-block;
-  margin-bottom: 12px;
   padding: 7px 14px;
-  border-radius: 999px;
+  margin-bottom: 12px;
   background: #eef4ff;
   color: #2563eb;
+  border-radius: 999px;
   font-size: 14px;
   font-weight: 700;
 }
@@ -267,8 +329,8 @@ button:hover {
 ========================= */
 
 .create-post {
-  margin-bottom: 30px;
   padding: 28px;
+  margin-bottom: 30px;
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 16px;
@@ -392,11 +454,26 @@ button:hover {
 
 @media (max-width: 700px) {
   .navbar-container {
-    padding: 14px 18px;
+    padding: 14px 16px;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
   }
 
   .navbar-links {
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .navbar-links a,
+  .logout-button,
+  .register-link {
+    font-size: 14px;
+  }
+
+  .register-link,
+  .logout-button {
+    padding: 7px 11px;
   }
 
   .home-page,
@@ -421,8 +498,46 @@ button:hover {
     width: 100%;
   }
 
+  .auth-page {
+    padding: 36px 16px;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+  }
+
   .create-post,
   .post-card {
     padding: 20px;
+  }
+}
+
+@media (max-width: 390px) {
+  .navbar-container {
+    padding: 12px;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .navbar-links {
+    gap: 7px;
+  }
+
+  .navbar-links a,
+  .logout-button,
+  .register-link {
+    font-size: 13px;
+  }
+
+  .register-link,
+  .logout-button {
+    padding: 6px 9px;
+  }
+
+  .posts-header h1,
+  .hero h1 {
+    font-size: 1.9rem;
   }
 }

@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await api.post('api/auth/login', form);
+      const res = await api.post('/api/auth/login', form);
       login(res.data.token, res.data.userId);
       navigate('/posts');
     } catch {
@@ -24,13 +24,45 @@ function Login() {
   };
 
   return (
-    <div className='page'>
-      <h2>Login</h2>
-      <input name="email" placeholder="Email" onChange={handleChange} />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} />
-      <button onClick={handleSubmit}>Login</button>
-    </div>
-  );
+  <main className="auth-page">
+    <form className="auth-card" onSubmit={handleSubmit}>
+      <span className="auth-badge">Welcome back</span>
+
+      <h1>Login to your account</h1>
+
+      <p className="auth-description">
+        Enter your details to continue to the Blog App.
+      </p>
+
+      <label htmlFor="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="you@example.com"
+        value={form.email}
+        onChange={handleChange}
+        required
+      />
+
+      <label htmlFor="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Enter your password"
+        value={form.password}
+        onChange={handleChange}
+        required
+      />
+
+      <button type="submit" className="auth-button">
+        Login
+      </button>
+    </form>
+  </main>
+);
+
 }
 
 export default Login;
