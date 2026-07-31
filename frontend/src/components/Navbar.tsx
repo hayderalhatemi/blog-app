@@ -11,19 +11,30 @@ function Navbar() {
   };
 
   return (
-    <nav>
-      <Link to="/posts">Posts</Link>
+    <nav className='navbar'>
+      <div className="navbar-container">
+        <Link to="/" className='navbar-brand'>
+          Blog App
+        </Link>
 
-      {token ? (
-        <button onClick={handleLogout}>Logout</button>
-      ) : (
-        <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
-        </>
-      )}
+        <div className="navbar-links">
+          <Link to="/posts">Posts</Link>
+
+          {token ? (
+            <button className='logout-button' onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/register" className='register-link'>
+                Register
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
     </nav>
   );
 }
-
 export default Navbar;
