@@ -10,6 +10,11 @@ dotenv.config();
 const app = express();
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
+
+app.get('/', (_req, res) => {
+    res.send('API is running...');
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 
