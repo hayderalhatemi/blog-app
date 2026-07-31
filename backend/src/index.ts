@@ -8,7 +8,14 @@ import postRoutes from './routes/postRoutes';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(
+    cors({
+        origin: [
+            'http://localhost:5173',
+            'https://blog-app-phi-weld.vercel.app',
+        ],
+    }),
+);
 app.use(express.json());
 
 app.get('/', (_req, res) => {
