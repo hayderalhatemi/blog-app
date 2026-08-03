@@ -1,14 +1,6 @@
-import { createContext, useContext, useState } from 'react'
+import { useState } from 'react'
 import type { ReactNode } from 'react'
-
-interface AuthContextType {
-  token: string | null
-  userId: string | null
-  login: (token: string, userId: string) => void
-  logout: () => void
-}
-
-const AuthContext = createContext<AuthContextType | null>(null)
+import { AuthContext } from './authContext'
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(
@@ -37,7 +29,4 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </AuthContext.Provider>
   )
-}
-export function useAuth() {
-  return useContext(AuthContext)!
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import api from '../api/axios'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
+import { useAuth } from '../context/useAuth'
 
 function Login() {
   const [form, setForm] = useState({ email: '', password: '' })
