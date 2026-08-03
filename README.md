@@ -18,9 +18,9 @@ A full stack blog application with JWT authentication built with Node.js, Expres
 
 ## Tech Stack
 
-**Backend:** Node.js, Express, TypeScript, MongoDB, Mongoose, bcryptjs, jsonwebtoken, Swagger/OpenAPI
+**Backend:** Node.js, Express, TypeScript, MongoDB, Mongoose, bcryptjs, jsonwebtoken, Swagger/OpenAPI, Jest, Supertest
 
-**Frontend:** React, TypeScript, Vite, React Router, Axios, Context API
+**Frontend:** React, TypeScript, Vite, React Router, Axios, Context API, Vitest, React Testing Library
 
 ## Deployment
 
@@ -34,6 +34,7 @@ A full stack blog application with JWT authentication built with Node.js, Expres
 blog-app/
 ├── backend/
 │   ├── src/
+│   ├── tests/
 │   └── package.json
 ├── frontend/
 │   ├── src/
@@ -42,6 +43,7 @@ blog-app/
 │   └── workflows/
 └── README.md
 ```
+
 ## API Documentation
 
 Interactive Swagger/OpenAPI documentation:
@@ -74,14 +76,40 @@ erDiagram
     }
 ```
 
+## Testing
+
+### Backend
+
+- Jest
+- Supertest
+- MongoDB Memory Server
+- Authentication API tests
+- Posts API tests
+
+### Frontend
+
+- Vitest
+- React Testing Library
+- Navbar component tests
+
 ## Continuous Integration
 
 GitHub Actions automatically runs on every push and pull request to the `main` branch.
 
-The workflow checks:
+### Backend CI
 
+- Prettier
 - ESLint
 - TypeScript type checking
+- Jest + Supertest
+- Production build
+
+### Frontend CI
+
+- Prettier
+- ESLint
+- TypeScript type checking
+- Vitest
 - Production build
 
 ## Getting Started
