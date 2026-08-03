@@ -1,36 +1,34 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import authRoutes from './routes/authRoutes';
-import postRoutes from './routes/postRoutes';
+import express from 'express'
+import mongoose from 'mongoose'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import authRoutes from './routes/authRoutes'
+import postRoutes from './routes/postRoutes'
 
-dotenv.config();
+dotenv.config()
 
-const app = express();
+const app = express()
 app.use(
-    cors({
-        origin: [
-            'http://localhost:5173',
-            'https://blog-app-phi-weld.vercel.app',
-        ],
-    }),
-);
-app.use(express.json());
+  cors({
+    origin: ['http://localhost:5173', 'https://blog-app-phi-weld.vercel.app'],
+  }),
+)
+app.use(express.json())
 
 app.get('/', (_req, res) => {
-    res.send('API is running...');
-});
-
-app.use('/api/auth', authRoutes);
-app.use('/api/posts', postRoutes);
-
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || '';
-
-mongoose.connect(MONGO_URI)
-.then(() => {
-    console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  res.send('API is running...')
 })
-.catch((err) => console.error(err));
+
+app.use('/api/auth', authRoutes)
+app.use('/api/posts', postRoutes)
+
+const PORT = process.env.PORT || 5000
+const MONGO_URI = process.env.MONGO_URI || ''
+
+mongoose
+  .connect(MONGO_URI)
+  .then(() => {
+    console.log('MongoDB connected')
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+  })
+  .catch((err) => console.error(err))
