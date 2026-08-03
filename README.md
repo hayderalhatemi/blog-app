@@ -18,7 +18,7 @@ A full stack blog application with JWT authentication built with Node.js, Expres
 
 ## Tech Stack
 
-**Backend:** Node.js, Express, TypeScript, MongoDB, Mongoose, bcryptjs, jsonwebtoken
+**Backend:** Node.js, Express, TypeScript, MongoDB, Mongoose, bcryptjs, jsonwebtoken, Swagger/OpenAPI
 
 **Frontend:** React, TypeScript, Vite, React Router, Axios, Context API
 
@@ -38,12 +38,64 @@ blog-app/
 ├── frontend/
 │   ├── src/
 │   └── package.json
+├── .github/
+│   └── workflows/
 └── README.md
 ```
+
+## API Documentation
+
+Swagger UI is available at:
+
+```text
+http://localhost:5000/api-docs
+```
+
+After deployment:
+
+```text
+https://blog-app-nrg6.onrender.com/api-docs
+```
+
+## Entity Relationship Diagram (ERD)
+
+```mermaid
+erDiagram
+    USER ||--o{ POST : creates
+
+    USER {
+        ObjectId _id
+        string username
+        string email
+        string password
+        date createdAt
+        date updatedAt
+    }
+
+    POST {
+        ObjectId _id
+        string title
+        string content
+        ObjectId author
+        date createdAt
+        date updatedAt
+    }
+```
+
+## Continuous Integration
+
+GitHub Actions automatically runs on every push and pull request to the `main` branch.
+
+The workflow checks:
+
+- ESLint
+- TypeScript type checking
+- Production build
 
 ## Getting Started
 
 ### Backend
+
 ```bash
 cd backend
 npm install
@@ -51,6 +103,7 @@ npm run dev
 ```
 
 ### Frontend
+
 ```bash
 cd frontend
 npm install
@@ -71,11 +124,11 @@ JWT_SECRET=your_secret_key
 
 | Method | Endpoint | Access |
 |--------|----------|--------|
-| POST   | /api/auth/register | Public |
-| POST   | /api/auth/login    | Public |
-| GET    | /api/posts         | Public |
-| POST   | /api/posts         | Protected |
-| DELETE | /api/posts/:id     | Protected (author only) |
+| POST | /api/auth/register | Public |
+| POST | /api/auth/login | Public |
+| GET | /api/posts | Public |
+| POST | /api/posts | Protected |
+| DELETE | /api/posts/:id | Protected (author only) |
 
 ## Future Improvements
 
