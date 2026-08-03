@@ -7,6 +7,26 @@ A full stack blog application with JWT authentication built with Node.js, Expres
 - Frontend: https://blog-app-phi-weld.vercel.app
 - Backend API: https://blog-app-nrg6.onrender.com
 
+## Screenshots
+
+### Home
+
+<p align="center">
+  <img src="./screenshots/home.png" alt="Home Page" width="700">
+</p>
+
+### Login
+
+<p align="center">
+  <img src="./screenshots/login.png" alt="Login Page" width="700">
+</p>
+
+### Posts
+
+<p align="center">
+  <img src="./screenshots/posts.png" alt="Posts Page" width="700">
+</p>
+
 ## Features
 
 - User registration and login with JWT authentication
