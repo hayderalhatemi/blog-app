@@ -6,7 +6,9 @@ export const createPost = async (req: AuthRequest, res: Response) => {
   const { title, content } = req.body
   try {
     const post = await Post.create({ title, content, author: req.userId })
-    res.status(201).json(post)
+    const populatedPost = await post.populate('author', 'username email')
+
+    res.status(201).json(populatedPost)
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Failed to create post' })
