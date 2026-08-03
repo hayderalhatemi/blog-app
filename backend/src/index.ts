@@ -1,39 +1,13 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import cors from 'cors'
 import dotenv from 'dotenv'
-import swaggerUi from 'swagger-ui-express'
-import swaggerSpec from './config/swagger'
-import authRoutes from './routes/authRoutes'
-import postRoutes from './routes/postRoutes'
+import connectDB from './config/db'
+import app from './app'
 
 dotenv.config()
 
-const app = express()
-app.use(
-  cors({
-    origin: ['http://localhost:5173', 'https://blog-app-phi-weld.vercel.app'],
-  }),
-)
-app.use(express.json())
-
-// Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
-
-app.get('/', (_req, res) => {
-  res.send('API is running...')
-})
-
-app.use('/api/auth', authRoutes)
-app.use('/api/posts', postRoutes)
+connectDB()
 
 const PORT = process.env.PORT || 5000
-const MONGO_URI = process.env.MONGO_URI || ''
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log('MongoDB connected')
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
-  })
-  .catch((err) => console.error(err))
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
