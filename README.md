@@ -42,20 +42,12 @@ blog-app/
 │   └── workflows/
 └── README.md
 ```
-
 ## API Documentation
 
-Swagger UI is available at:
+Interactive Swagger/OpenAPI documentation:
 
-```text
-http://localhost:5000/api-docs
-```
-
-After deployment:
-
-```text
-https://blog-app-nrg6.onrender.com/api-docs
-```
+- **Local:** http://localhost:5000/api-docs
+- **Production:** https://blog-app-nrg6.onrender.com/api-docs
 
 ## Entity Relationship Diagram (ERD)
 
