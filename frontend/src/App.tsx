@@ -1,23 +1,23 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Posts from './pages/Posts';
-import Navbar from './components/Navbar';
-import Home from "./pages/Home";
+import { Routes, Route, Navigate } from 'react-router-dom'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Posts from './pages/Posts'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-      <Route path="/home" element={<Navigate to="/" replace />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<Login />} />
-      <Route path='/posts' element={<Posts />} />
-    </Routes>
+        <Route path="/home" element={<Navigate to="/" replace />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/posts" element={<Posts />} />
+      </Routes>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

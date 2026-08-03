@@ -1,50 +1,46 @@
-import { useEffect, useState } from 'react';
-import api from '../api/axios';
-import { useAuth } from '../context/AuthContext';
+import { useEffect, useState } from 'react'
+import api from '../api/axios'
+import { useAuth } from '../context/AuthContext'
 
 interface Post {
-  _id: string;
-  title: string;
-  content: string;
-  author: { _id: string; username: string };
+  _id: string
+  title: string
+  content: string
+  author: { _id: string; username: string }
 }
 
 function Posts() {
-  const { token, userId } = useAuth();
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [form, setForm] = useState({ title: '', content: '' });
+  const { token, userId } = useAuth()
+  const [posts, setPosts] = useState<Post[]>([])
+  const [form, setForm] = useState({ title: '', content: '' })
 
   // Fetch all posts on load
   useEffect(() => {
-    api.get('/api/posts').then((res) => setPosts(res.data));
-  }, []);
+    api.get('/api/posts').then((res) => setPosts(res.data))
+  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
-      const res = await api.post(
-        '/api/posts',
-        form,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const res = await api.post('/api/posts', form, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      })
 
-      setPosts([res.data, ...posts]);
-      setForm({ title: '', content: '' });
+      setPosts([res.data, ...posts])
+      setForm({ title: '', content: '' })
     } catch {
-      alert('Failed to create post. Are you logged in?');
+      alert('Failed to create post. Are you logged in?')
     }
-  };
+  }
 
   const handleDelete = async (id: string) => {
     try {
@@ -52,13 +48,13 @@ function Posts() {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
+      })
 
-      setPosts(posts.filter((p) => p._id !== id));
+      setPosts(posts.filter((p) => p._id !== id))
     } catch {
-      alert('Failed to delete post');
+      alert('Failed to delete post')
     }
-  };
+  }
 
   return (
     <main className="posts-page">
@@ -138,7 +134,7 @@ function Posts() {
         </section>
       </section>
     </main>
-  );
+  )
 }
 
-export default Posts;
+export default Posts
