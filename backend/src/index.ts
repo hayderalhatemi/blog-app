@@ -2,6 +2,8 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import swaggerUi from 'swagger-ui-express'
+import swaggerSpec from './config/swagger'
 import authRoutes from './routes/authRoutes'
 import postRoutes from './routes/postRoutes'
 
@@ -14,6 +16,9 @@ app.use(
   }),
 )
 app.use(express.json())
+
+// Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 app.get('/', (_req, res) => {
   res.send('API is running...')
