@@ -1,5 +1,15 @@
 # Blog App
 
+![React](https://img.shields.io/badge/React-20232A?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js)
+![Express](https://img.shields.io/badge/Express-000000?logo=express)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb)
+![JWT](https://img.shields.io/badge/JWT-Authentication-orange)
+![REST%20API](https://img.shields.io/badge/REST-API-blue)
+![Vercel](https://img.shields.io/badge/Frontend-Vercel-black?logo=vercel)
+![Render](https://img.shields.io/badge/Backend-Render-46E3B7)
+
 A full stack blog application with JWT authentication built with Node.js, Express, TypeScript, React, and MongoDB.
 
 ## Live Demo
@@ -178,3 +188,7 @@ JWT_SECRET=your_secret_key
 - Image upload for posts
 - Search functionality
 - Pagination
+
+## License
+
+This project is licensed under the MIT License.
