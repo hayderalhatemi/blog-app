@@ -162,6 +162,67 @@ erDiagram
     }
 ```
 
+## UML Diagrams
+
+### Use Case Diagram
+
+The use case diagram shows the main actions available to visitors and authenticated users.
+
+```mermaid
+flowchart LR
+    Guest((Visitor))
+    User((Authenticated User))
+
+    subgraph BlogApp["Blog App"]
+        View([View Posts])
+        Register([Register])
+        Login([Login])
+        Create([Create Post])
+        Delete([Delete Own Post])
+        Logout([Logout])
+    end
+
+    Guest --> View
+    Guest --> Register
+    Guest --> Login
+
+    User --> View
+    User --> Create
+    User --> Delete
+    User --> Logout
+```
+
+### Sequence Diagram — Create Post
+
+The sequence diagram shows how an authenticated user creates a blog post.
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant UI as React Frontend
+    participant API as Express REST API
+    participant Auth as JWT Auth Middleware
+    participant Controller as Post Controller
+    participant Model as Mongoose Post Model
+    participant DB as MongoDB
+
+    User->>UI: Enter post title and content
+    User->>UI: Submit post
+    UI->>API: POST /api/posts + JWT
+    API->>Auth: Verify JWT
+    Auth-->>API: Authenticated user
+    API->>Controller: Create post
+    Controller->>Model: Create post with author
+    Model->>DB: Save post
+    DB-->>Model: Post saved
+    Model-->>Controller: Created post
+    Controller-->>API: Return post
+    API-->>UI: Created post response
+    UI-->>User: Display new post
+```
+
+---
+
 ## Quick Start
 
 ### 1. Clone the repository
